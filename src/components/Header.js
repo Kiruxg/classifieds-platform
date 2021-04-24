@@ -1,6 +1,6 @@
 import React, { Component, createRef } from "react"
 import ReactDOM from "react-dom"
-import { BrowserRouter as Router, Route, NavLink, Link} from "react-router-dom"
+import { BrowserRouter as Router, Route, NavLink, Link } from "react-router-dom"
 import Newpost1 from "./Newpost1.js"
 import ManagePosts from "./ManagePosts.js"
 import firebase from "firebase/app"
@@ -318,11 +318,13 @@ export default class Header extends Component {
                     </Link>
                   )}
                 </li>
-                <li className="navigation__item">
-                  <Link onClick={this.props.signOut} to="/" className="navigation__link ">
-                    <span>03</span>Log out
-                  </Link>
-                </li>
+                {this.context.user && (
+                  <li className="navigation__item">
+                    <Link onClick={this.props.signOut} to="/" className="navigation__link ">
+                      <span>03</span>Log out
+                    </Link>
+                  </li>
+                )}
               </ul>
             </nav>
           </div>
